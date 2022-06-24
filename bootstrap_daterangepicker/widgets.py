@@ -8,6 +8,7 @@ from django import forms
 from django.utils import formats
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
+from django.core.serializers.json import DjangoJSONEncoder
 
 __all__ = ['DatePickerWidget', 'DateRangeWidget', 'DateTimeRangeWidget', 'add_month', 'common_dates']
 
