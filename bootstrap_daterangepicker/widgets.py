@@ -33,19 +33,19 @@ def add_month(start_date, months):
     return start_date + relativedelta.relativedelta(months=months)
 
 
-def common_dates(start_date=date.today()):
+def common_dates(date_format, start_date=date.today()):
     one_day = timedelta(days=1)
     return OrderedDict([
-        ('Today', (start_date, start_date)),
-        ('Yesterday', (start_date - one_day, start_date - one_day)),
-        ('This week', (start_date - timedelta(days=start_date.weekday()), start_date)),
-        ('Last week', (start_date - timedelta(days=start_date.weekday() + 7),
-                       start_date - timedelta(days=start_date.weekday() + 1))),
-        ('Week ago', (start_date - timedelta(days=7), start_date)),
-        ('This month', (start_date.replace(day=1), start_date)),
-        ('Last month', (add_month(start_date.replace(day=1), -1), start_date.replace(day=1) - one_day)),
-        ('3 months', (add_month(start_date, -3), start_date)),
-        ('Year', (add_month(start_date, -12), start_date)),
+        ('Today', (start_date.strftime(date_format), start_date.strftime(date_format))),
+        ('Yesterday', ((start_date - one_day).strftime(date_format), (start_date - one_day).strftime(date_format))),
+        ('This week', ((start_date - timedelta(days=start_date.weekday())).strftime(date_format), start_date.strftime(date_format))),
+        ('Last week', ((start_date - timedelta(days=start_date.weekday() + 7)).strftime(date_format),
+                    (start_date - timedelta(days=start_date.weekday() + 1)).strftime(date_format))),
+        ('Week ago', ((start_date - timedelta(days=7)).strftime(date_format), start_date.strftime(date_format))),
+        ('This month', ((start_date.replace(day=1)).strftime(date_format), start_date.strftime(date_format))),
+        ('Last month', ((add_month(start_date.replace(day=1), -1)).strftime(date_format), (start_date.replace(day=1) - one_day).strftime(date_format))),
+        ('3 months', ((add_month(start_date, -3)).strftime(date_format), start_date.strftime(date_format))),
+        ('Year', ((add_month(start_date, -12)).strftime(date_format), start_date.strftime(date_format))),
         ])
 
 
