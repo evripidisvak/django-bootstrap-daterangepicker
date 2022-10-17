@@ -44,18 +44,18 @@ def common_dates(date_format, start_date=date.today()):
     return OrderedDict(
         [
             (
-                "Today",
+                "Σήμερα",
                 (start_date.strftime(date_format), start_date.strftime(date_format)),
             ),
             (
-                "Yesterday",
+                "Εχθές",
                 (
                     (start_date - one_day).strftime(date_format),
                     (start_date - one_day).strftime(date_format),
                 ),
             ),
             (
-                "This week",
+                "Τρέχουσα εβδομάδα",
                 (
                     (start_date - timedelta(days=start_date.weekday())).strftime(
                         date_format
@@ -64,7 +64,7 @@ def common_dates(date_format, start_date=date.today()):
                 ),
             ),
             (
-                "Last week",
+                "Προηγούμενη εβδομάδα",
                 (
                     (start_date - timedelta(days=start_date.weekday() + 7)).strftime(
                         date_format
@@ -75,35 +75,35 @@ def common_dates(date_format, start_date=date.today()):
                 ),
             ),
             (
-                "Week ago",
+                "7 τελευταίες ημέρες",
                 (
                     (start_date - timedelta(days=7)).strftime(date_format),
                     start_date.strftime(date_format),
                 ),
             ),
             (
-                "This month",
+                "Τρέχων μήνας",
                 (
                     (start_date.replace(day=1)).strftime(date_format),
                     start_date.strftime(date_format),
                 ),
             ),
             (
-                "Last month",
+                "Προηγούμενος μήνας",
                 (
                     (add_month(start_date.replace(day=1), -1)).strftime(date_format),
                     (start_date.replace(day=1) - one_day).strftime(date_format),
                 ),
             ),
             (
-                "3 months",
+                "Τρίμηνο",
                 (
                     (add_month(start_date, -3)).strftime(date_format),
                     start_date.strftime(date_format),
                 ),
             ),
             (
-                "Year",
+                "Έτος",
                 (
                     (add_month(start_date, -12)).strftime(date_format),
                     start_date.strftime(date_format),
@@ -118,7 +118,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
     return OrderedDict(
         [
             (
-                "Today",
+                "Σήμερα",
                 (
                     start_date.strftime(date_format),
                     start_date.replace(
@@ -127,7 +127,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "Yesterday",
+                "Εχθές",
                 (
                     (start_date - one_day).strftime(date_format),
                     (start_date - one_day)
@@ -136,7 +136,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "Yesterday evening",
+                "Εχθές απόγευμα",
                 (
                     (start_date - one_day)
                     .replace(hour=18, minute=00, second=00, microsecond=00)
@@ -147,7 +147,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "This week",
+                "Τρέχουσα εβδομάδα",
                 (
                     (start_date - timedelta(days=start_date.weekday())).strftime(
                         date_format
@@ -158,7 +158,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "Last week",
+                "Προηγούμενη εβδομάδα",
                 (
                     (start_date - timedelta(days=start_date.weekday() + 7)).strftime(
                         date_format
@@ -169,7 +169,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "Week ago",
+                "7 τελευταίες ημέρες",
                 (
                     (start_date - timedelta(days=7)).strftime(date_format),
                     start_date.replace(
@@ -178,7 +178,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "This month",
+                "Τρέχων μήνας",
                 (
                     (start_date.replace(day=1)).strftime(date_format),
                     start_date.replace(
@@ -187,7 +187,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "Last month",
+                "Προηγούμενος μήνας",
                 (
                     (add_month(start_date.replace(day=1), -1)).strftime(date_format),
                     (start_date.replace(day=1) - one_day)
@@ -196,7 +196,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "3 months",
+                "Τρίμηνο",
                 (
                     (add_month(start_date, -3)).strftime(date_format),
                     start_date.replace(
@@ -205,7 +205,7 @@ def common_datetimes(date_format, start_date=datetime.today()):
                 ),
             ),
             (
-                "Year",
+                "Έτος",
                 (
                     (add_month(start_date, -12)).strftime(date_format),
                     start_date.replace(
