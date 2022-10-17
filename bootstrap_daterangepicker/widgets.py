@@ -113,7 +113,7 @@ def common_dates(date_format, start_date=date.today()):
     )
 
 
-def common_datetimes(date_format, start_date=date.today()):
+def common_datetimes(date_format, start_date=datetime.today()):
     one_day = timedelta(days=1)
     return OrderedDict(
         [
@@ -121,9 +121,9 @@ def common_datetimes(date_format, start_date=date.today()):
                 "Today",
                 (
                     start_date.strftime(date_format),
-                    start_date.strftime(date_format).replace(
+                    start_date.replace(
                         hour=23, minute=59, second=59, microsecond=999999
-                    ),
+                    ).strftime(date_format),
                 ),
             ),
             (
@@ -131,19 +131,19 @@ def common_datetimes(date_format, start_date=date.today()):
                 (
                     (start_date - one_day).strftime(date_format),
                     (start_date - one_day)
-                    .strftime(date_format)
-                    .replace(hour=23, minute=59, second=59, microsecond=999999),
+                    .replace(hour=23, minute=59, second=59, microsecond=999999)
+                    .strftime(date_format),
                 ),
             ),
             (
                 "Yesterday evening",
                 (
                     (start_date - one_day)
-                    .strftime(date_format)
-                    .replace(hour=18, minute=00, second=00, microsecond=0),
+                    .replace(hour=18, minute=00, second=00, microsecond=00)
+                    .strftime(date_format),
                     (start_date - one_day)
-                    .strftime(date_format)
-                    .replace(hour=20, minute=59, second=59, microsecond=999999),
+                    .replace(hour=21, minute=00, second=00, microsecond=00)
+                    .strftime(date_format),
                 ),
             ),
             (
@@ -152,9 +152,9 @@ def common_datetimes(date_format, start_date=date.today()):
                     (start_date - timedelta(days=start_date.weekday())).strftime(
                         date_format
                     ),
-                    start_date.strftime(date_format).replace(
+                    start_date.replace(
                         hour=23, minute=59, second=59, microsecond=999999
-                    ),
+                    ).strftime(date_format),
                 ),
             ),
             (
@@ -164,26 +164,26 @@ def common_datetimes(date_format, start_date=date.today()):
                         date_format
                     ),
                     (start_date - timedelta(days=start_date.weekday() + 1))
-                    .strftime(date_format)
-                    .replace(hour=23, minute=59, second=59, microsecond=999999),
+                    .replace(hour=23, minute=59, second=59, microsecond=999999)
+                    .strftime(date_format),
                 ),
             ),
             (
                 "Week ago",
                 (
                     (start_date - timedelta(days=7)).strftime(date_format),
-                    start_date.strftime(date_format).replace(
+                    start_date.replace(
                         hour=23, minute=59, second=59, microsecond=999999
-                    ),
+                    ).strftime(date_format),
                 ),
             ),
             (
                 "This month",
                 (
                     (start_date.replace(day=1)).strftime(date_format),
-                    start_date.strftime(date_format).replace(
+                    start_date.replace(
                         hour=23, minute=59, second=59, microsecond=999999
-                    ),
+                    ).strftime(date_format),
                 ),
             ),
             (
@@ -191,26 +191,26 @@ def common_datetimes(date_format, start_date=date.today()):
                 (
                     (add_month(start_date.replace(day=1), -1)).strftime(date_format),
                     (start_date.replace(day=1) - one_day)
-                    .strftime(date_format)
-                    .replace(hour=23, minute=59, second=59, microsecond=999999),
+                    .replace(hour=23, minute=59, second=59, microsecond=999999)
+                    .strftime(date_format),
                 ),
             ),
             (
                 "3 months",
                 (
                     (add_month(start_date, -3)).strftime(date_format),
-                    start_date.strftime(date_format).replace(
+                    start_date.replace(
                         hour=23, minute=59, second=59, microsecond=999999
-                    ),
+                    ).strftime(date_format),
                 ),
             ),
             (
                 "Year",
                 (
                     (add_month(start_date, -12)).strftime(date_format),
-                    start_date.strftime(date_format).replace(
+                    start_date.replace(
                         hour=23, minute=59, second=59, microsecond=999999
-                    ),
+                    ).strftime(date_format),
                 ),
             ),
         ]
